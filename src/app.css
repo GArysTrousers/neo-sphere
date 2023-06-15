@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Cherry+Bomb+One&family=Major+Mono+Display&family=Roboto+Mono&family=Sanchez&family=Signika+Negative&display=swap');
+
+/* 
+font-family: 'Arvo', serif;
+font-family: 'Cherry Bomb One', cursive;
+font-family: 'Major Mono Display', monospace;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Sanchez', serif;
+font-family: 'Signika Negative', sans-serif;
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Signika Negative', sans-serif;
+  @apply text-white bg-gray-800
+}
+
+.input {
+  @apply px-3 py-1 rounded-lg text-lg;
+}
+
+.flex-row, .flex-col {
+  @apply flex;
+}
+
+.font-title {
+  font-family: 'Major Mono Display', monospace;
+}
+
+.font-japanese {
+  font-family: 'Cherry Bomb One', cursive;
+}
+
+.font-header {
+  font-family: 'Sanchez', serif;
+}
+
+.btn {
+  @apply border-2 border-white px-3 py-1 rounded-lg
+  flex flex-row gap-2 justify-center items-center;
+}
+
+.btn:hover {
+  @apply brightness-90;
+}
+
+.btn:active {
+  @apply brightness-75;
+}
+
+th {
+  @apply text-left;
+}
