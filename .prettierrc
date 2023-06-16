@@ -1,4 +1,6 @@
 {
+  "svelteBracketNewLine": false,
+  "htmlWhitespaceSensitivity": "ignore",
 	"useTabs": true,
 	"singleQuote": true,
 	"trailingComma": "none",

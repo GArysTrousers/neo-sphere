@@ -49,3 +49,4 @@ socket.send(JSON.stringify({
   from: hardware.serial,
   status: "Waiting"
 }))
+

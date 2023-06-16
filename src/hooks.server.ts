@@ -1,8 +1,10 @@
 
 import { WebSocket, WebSocketServer } from "ws";
 
-const wss = new WebSocketServer({
-  port: 8088
+const wsPort = 8088
+
+let wss = new WebSocketServer({
+  port: wsPort
 })
 
 interface Client {
@@ -11,10 +13,6 @@ interface Client {
   status: string;
 }
 
-// let nodeSockets:WebSocket[] = []
-// let masterSockets:WebSocket[] = []
-
-// let sockets: WebSocket[] = [];
 let clients = new Map<WebSocket, Client>()
 
 wss.on('connection', function (socket: WebSocket) {
@@ -65,6 +63,16 @@ wss.on('connection', function (socket: WebSocket) {
       console.log("a " + client.type + " disconnected");
     }
     clients.delete(socket)
+    
+    clients.forEach((c, s) => {
+      if (c.type == 'master') {
+        s.send(Buffer.from(JSON.stringify({
+          type: "workers-status",
+          workers: [...clients.values()].filter((c) => c.type == 'worker').map((w) => ([w.serial, w.status]))
+        })))
+      }
+    });
   });
 });
 
+console.log("Websocket server listening on " + wsPort);

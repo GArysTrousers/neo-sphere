@@ -4,7 +4,7 @@ import PocketBase from "pocketbase";
 
 import { writable } from "svelte/store";
 
-export const pbUrl = dev ? "http://127.0.0.1:8090" : "http://url"
+export const pbUrl = dev ? "http://127.0.0.1:8090" : "http://127.0.0.1:8090"
 
 export const pb = new PocketBase(pbUrl)
 
